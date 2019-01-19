@@ -1,0 +1,7 @@
+baseUrl = "https://shreddedbacon.com/"
+CanonifyUrls = true
+languageCode = "en-us"
+title = "Ben Jackson's Blog"
+
+[params]
+	description = "System engineer, platform builder, programmer and hardware hacker"
