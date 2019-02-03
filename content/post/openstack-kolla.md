@@ -212,7 +212,7 @@ openstack image create --container-format bare \
 ### Octavia External Network
 Since I am using VLAN provider networks, I picked one that is designed for the openstack network in general
 ```
-openstack network create --share --external \
+openstack network create --external \
 	--provider-physical-network physnet1 \
 	--provider-segment 400 --provider-network-type vlan extnet4
 openstack subnet create --no-dhcp \
