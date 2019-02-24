@@ -61,9 +61,13 @@ Configuring commands that the bot can run is pretty easy. Just add to the `comma
    }
 ]
 ```
-The `options` block is where you configure the main bits of how it interacts with concourse. The `command` section is where you write the command you want to listen for, it doesn't have to match the pipeline and job name, just something you want to use. Use the `help` section to write a brief description that is show when you `@bot help`.
+The `options` block is where you configure the main bits of how it interacts with concourse. Specify the team, pipeline, and the job name to use. Skipoutput will just notify when the job is complete. Privileged sets whether you need to be in the provided `privileged_users` list.
 
-Using the `privileged_users` block, you can specify the user IDs of people that can run that command. I would like to expand this to groups at some point, but I have no way to test this properly on free slack plans.
+The `command` section is where you write the command you want to listen for, it doesn't have to match the pipeline and job name, just something you want to use.
+
+Use the `help` section to write a brief description that is shown when you `@bot help`. And the `accept_repsonse` is what is displayed once the bot has accepted the command.
+
+Using the `privileged_users` block in conjunction with the `privileged` flag, you can specify the user IDs of people that can run that command. I would like to expand this to groups at some point, but I have no way to test this properly on free slack plans.
 
 Once the bot is running, you can run `@concoursebot help` and it will list all the commands you can use.
 
@@ -76,5 +80,7 @@ Run a job, and wait for the result.
 Or skip the output
 
 ![SlackbotSkipoutput](/img/slackbot-03.png)
+
+I did think about having this as a direct passthrough to Concourse, where you @ the bot like `@concoursebot trigger-job team/pipeline/job` but being able to restrict that to users within slack would become difficult. Maybe in the future
 
 Enjoy running concourse jobs from slack! Feel free to submit any issues or PRs if you see something you might want.
